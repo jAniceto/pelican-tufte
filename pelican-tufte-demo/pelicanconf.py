@@ -34,9 +34,9 @@ SOCIAL = (
 DEFAULT_PAGINATION = False
 
 # Uncomment following line if you want document-relative URLs when developing
-#RELATIVE_URLS = True
+RELATIVE_URLS = True
 
-THEME = 'C:/Users/José Aniceto/Dropbox/Projectos/pelican-tufte/tufte-theme'
+THEME = '../pelican-tufte-theme'
 
 PROFILE_IMAGE_URL = 'https://placehold.jp/500x500.png'
 
