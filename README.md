@@ -4,7 +4,7 @@ A Pelican theme using Tufte CSS. Build with academics in mind.
 
 ## Demo 
 
-You can see a live demo [here]().
+You can see a live demo [here](https://janiceto.github.io/pelican-tufte/).
 
 ![Demo](screenshot.png)
 
