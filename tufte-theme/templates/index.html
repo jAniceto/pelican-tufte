@@ -6,31 +6,40 @@
 {% if page.relative_source_path == 'pages/about.md' %}
 
 <section>
-<h1>{{ page.title }}</h1>
+<h1>{{ page_name|capitalize }}</h1>
 </section>
 
+{% for article in articles_page.object_list %}
+{% if article.category == 'Blog' %}
 <section>
-  <p>
-    {% if PROFILE_IMAGE_URL %}
-    <span class="marginnote">
-      <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
-    </span>
+  <!-- Title -->
+  <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title }}">{{ article.title }}</a></h2>
+
+  <!-- Image -->
+  {% if article.image %}
+    <p>
+      <span class="marginnote">
+        <img src="{{ article.image }}" alt="{{ article.title|striptags }}">
+      </span>
+    </p>
+  {% endif %}
+
+  <p class="text-small">
+    {% for author in article.authors %}
+      <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+      {% if not loop.last %}<span class="nav-sep">, </span>{% endif %}
+    {% endfor %}
+    <span class="nav-sep">&#x2022;</span>
+    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> 
+    {% if article.modified %}
+     (updated <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time> )
     {% endif %}
-    
-    {{ page.content }}
-</p>
+  </p>
+  
+  <p>{{ article.summary }}</p>
 </section>
-
-<section>
-  <h2>Links</h2>
-  <p>
-    <ul>
-      {% for name, link in SOCIAL %}
-      <li><a href="{{ link }}">{{ name }}</a></li>
-      {% endfor %}
-    </ul>
-</p>
-</section>
+{% endif %}
+{% endfor %}
 
 {% endif %}
 {% endfor %}

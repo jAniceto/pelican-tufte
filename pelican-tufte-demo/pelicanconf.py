@@ -40,7 +40,7 @@ THEME = 'C:/Users/José Aniceto/Dropbox/Projectos/pelican-tufte/tufte-theme'
 
 PROFILE_IMAGE_URL = 'https://placehold.jp/500x500.png'
 
-# INDEX_SAVE_AS = 'blog_index.html'
+INDEX_SAVE_AS = 'blog.html'
 
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -50,5 +50,6 @@ MENUITEMS = (
     ('Teaching', '/category/teaching.html'),
     ('Talks', '/category/talks.html'),
     ('Projects', '/category/projects.html'),
+    ('Blog', '/blog.html'),
     ('Contact', '/pages/contact.html'),
 )

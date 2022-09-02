@@ -24,3 +24,8 @@ nav>ul>li {
     -moz-column-width: 200px;
     column-width: 200px;
 }
+
+.article-metadata {
+    margin-top: -1rem;
+    padding-top: 0;
+}

@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+{{ SITENAME }} - {{ article.title|striptags }}
+{% endblock %}
+
+
+{% block content %}
+
+<section>
+  <h1>{{ article.title|striptags }}</h1>
+</section>
+
+<section class="article-metadata">
+  <p class="article-metadata">
+    {% for author in article.authors %}
+      <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+      {% if not loop.last %}<span class="nav-sep">, </span>{% endif %}
+    {% endfor %}
+    <span class="nav-sep">&#x2022;</span>
+    <time datetime="{{ article.date.isoformat() }}">{{ article.locale_date }}</time> 
+    {% if article.modified %}
+     (updated <time datetime="{{ article.modified.isoformat() }}">{{ article.locale_modified }}</time> )
+    {% endif %}
+  </p>
+</section>
+
+<section>
+  <p>
+    {% if article.image %}
+    <span class="marginnote">
+      <img src="{{ article.image }}" alt="{{ article.title|striptags }}">
+    </span>
+    {% endif %}
+
+    {{ article.content }}
+  </p>
+</section>
+
+
+
+{% endblock %}
