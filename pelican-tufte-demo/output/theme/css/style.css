@@ -1,9 +1,9 @@
-nav > ul {
+nav>ul {
     padding-left: 0;
     list-style: none;
 }
 
-nav > ul > li {
+nav>ul>li {
     display: inline-block;
 }
 
@@ -14,4 +14,13 @@ nav > ul > li {
 
 .text-small {
     font-size: 1.1rem;
+}
+
+.columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    column-width: 200px;
 }

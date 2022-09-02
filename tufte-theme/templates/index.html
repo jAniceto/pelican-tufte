@@ -11,12 +11,13 @@
 
 <section>
   <p>
-  {% if PROFILE_IMAGE_URL %}
-  <span class="marginnote">
-    <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
-  </span>
-  {% endif %}
-  {{ page.content }}
+    {% if PROFILE_IMAGE_URL %}
+    <span class="marginnote">
+      <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
+    </span>
+    {% endif %}
+    
+    {{ page.content }}
 </p>
 </section>
 

@@ -1,28 +1,55 @@
 {% extends "base.html" %}
 
-{% block html_lang %}{{ page.lang }}{% endblock %}
-
-{% block title %}{{ SITENAME }} - {{ page.title|striptags }}{%endblock%}
-
-{% block head %}
-{{ super() }}
-
-{% import 'translations.html' as translations with context %}
-{% if translations.entry_hreflang(page) %}
-{{ translations.entry_hreflang(page) }}
-{% endif %}
+{% block title %}
+{{ SITENAME }} - {{ page.title }}
 {% endblock %}
 
+
 {% block content %}
-<h1>{{ page.title }}</h1>
-{% import 'translations.html' as translations with context %}
-{{ translations.translations_for(page) }}
 
-{{ page.content }}
+<section>
+  <h1>{{ page.title }}</h1>
+</section>
 
-{% if page.modified %}
-<p>
-  Last updated: {{ page.locale_modified }}
+<section>
+  <p>
+    {% if PROFILE_IMAGE_URL %}
+    <span class="marginnote">
+      <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
+    </span>
+    {% endif %}
+    
+    {{ page.content }}
 </p>
+</section>
+
+
+{% if page.save_as == 'index.html' %}
+<div class="columns">
+  <section>
+    <h2>Find me in:</h2>
+    <p>
+      <ul>
+        {% for name, link in SOCIAL %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+      </ul>
+  </p>
+  </section>
+  
+  <section>
+    <h2>Links:</h2>
+    <p>
+      <ul>
+        {% for name, link in LINKS %}
+        <li><a href="{{ link }}">{{ name }}</a></li>
+        {% endfor %}
+      </ul>
+  </p>
+  </section>
+</div>
 {% endif %}
+
+
+
 {% endblock %}

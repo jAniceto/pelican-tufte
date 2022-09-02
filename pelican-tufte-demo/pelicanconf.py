@@ -17,10 +17,11 @@ AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
 
 # Blogroll
-LINKS = (('Pelican', 'https://getpelican.com/'),
-         ('Python.org', 'https://www.python.org/'),
-         ('Jinja2', 'https://palletsprojects.com/p/jinja/'),
-         ('You can modify those links in your config file', '#'),)
+LINKS = (
+    ('Pelican', 'https://getpelican.com/'),
+    ('Python.org', 'https://www.python.org/'),
+    ('Jinja2', 'https://palletsprojects.com/p/jinja/'),
+)
 
 # Social widget
 SOCIAL = (
@@ -28,7 +29,6 @@ SOCIAL = (
     ('ORCID', '#'),
     ('Google Scholar', '#'),
     ('Twitter', '#'),
-    ('Facebook', '#'),
 )
 
 DEFAULT_PAGINATION = False
@@ -39,3 +39,16 @@ DEFAULT_PAGINATION = False
 THEME = 'C:/Users/José Aniceto/Dropbox/Projectos/pelican-tufte/tufte-theme'
 
 PROFILE_IMAGE_URL = 'https://placehold.jp/500x500.png'
+
+# INDEX_SAVE_AS = 'blog_index.html'
+
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
+MENUITEMS = (
+    ('Bio', '/'),
+    ('Publications', '/category/publications.html'),
+    ('Teaching', '/category/teaching.html'),
+    ('Talks', '/category/talks.html'),
+    ('Projects', '/category/projects.html'),
+    ('Contact', '/pages/contact.html'),
+)

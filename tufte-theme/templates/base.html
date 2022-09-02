@@ -64,23 +64,22 @@
 
     <nav>
       <ul>
-        {% for pp in pages %}
-        {% if pp.relative_source_path == 'pages/about.md' %}
-        <li><a href="{{ SITEURL }}">{{ pp.title }}</a></li>
-        <span class="nav-sep">&#x2022;</span>
-        {% endif %}
-        {% endfor %}
-        
-        <!-- <li><a href="{{ SITEURL }}/">Bio</a></li>
-        <span class="nav-sep">&#x2022;</span> -->
-        
-        {% for pp in pages %}
-          {% if not pp.relative_source_path == 'pages/about.md' %}
-            <li><a href="{{ SITEURL }}/{{ pp.url }}">{{ pp.title }}</a></li>
+        <!-- Custom Menu - Defined in pelicanconf -->
+        {% for title, link in MENUITEMS %}
+            <li><a href="{{ link }}">{{ title }}</a></li>
             {% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
-          {% endif %}
         {% endfor %}
+        
+        <!-- Pages -->
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          {% for pp in pages %}
+            <li><a href="{{ SITEURL }}">{{ pp.title }}</a></li>
+            {% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
+          {% endfor %}
+          {% if categories %}<span class="nav-sep">&#x2022;</span>{% endif %}
+        {% endif %}
 
+        <!-- Categories -->
         {% if DISPLAY_CATEGORIES_ON_MENU %}
           {% for cat, null in categories %}
             <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
