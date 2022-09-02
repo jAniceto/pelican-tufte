@@ -14,9 +14,11 @@
 <section>
   <p>
     {% if PROFILE_IMAGE_URL %}
+    {% if page.save_as == 'index.html' %}
     <span class="marginnote">
       <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
     </span>
+    {% endif %}
     {% endif %}
     
     {{ page.content }}
