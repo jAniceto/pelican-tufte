@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "238b5d1881f88a6f628a21420685c03d056589a431f276793d566fff2fdcae1d"
+            "sha256": "2cf605fc509c46adbce17bc4779daaf0092ab0c9413489cc3b99423df7ab1d6d"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -46,6 +46,14 @@
             ],
             "markers": "python_version >= '3.6'",
             "version": "==2.0.0"
+        },
+        "ghp-import": {
+            "hashes": [
+                "sha256:8337dd7b50877f163d4c0289bc1f1c7f127550241988d568c1db512c4324a619",
+                "sha256:9c535c4c61193c2df8871222567d7fd7e5014d835f97dc7b7439069e2413d343"
+            ],
+            "index": "pypi",
+            "version": "==2.1.0"
         },
         "importlib-metadata": {
             "hashes": [
@@ -155,7 +163,7 @@
                 "sha256:2eb4e6894cde1e017976d2975ac210ef515d7548bc595ba20e195fb9628acdeb",
                 "sha256:63a5c5ce3673d3d5fbbf23cd87e11ab84b6b451436f1b7f19ec54b6bc36ed7ca"
             ],
-            "markers": "python_version < '4.0' and python_full_version >= '3.6.3'",
+            "markers": "python_full_version >= '3.6.3' and python_full_version < '4.0.0'",
             "version": "==12.5.1"
         },
         "six": {
