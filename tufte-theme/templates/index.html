@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% for page in pages %}
+{% if page.relative_source_path == 'pages/about.md' %}
+
+<section>
+<h1>{{ page.title }}</h1>
+</section>
+
+<section>
+  <p>
+  {% if PROFILE_IMAGE_URL %}
+  <span class="marginnote">
+    <img src="{{ PROFILE_IMAGE_URL }}" alt="">    
+  </span>
+  {% endif %}
+  {{ page.content }}
+</p>
+</section>
+
+<section>
+  <h2>Links</h2>
+  <p>
+    <ul>
+      {% for name, link in SOCIAL %}
+      <li><a href="{{ link }}">{{ name }}</a></li>
+      {% endfor %}
+    </ul>
+</p>
+</section>
+
+{% endif %}
+{% endfor %}
+
+{% endblock content %}
+

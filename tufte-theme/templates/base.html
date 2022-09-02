@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="{% block html_lang %}{{ DEFAULT_LANG }}{% endblock html_lang %}">
+
+<head>
+  {% block head %}
+  <title>{% block title %}{{ SITENAME }}{% endblock title %}</title>
+  <meta charset="utf-8" />
+  <meta name="generator" content="Pelican" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  {% if FEED_ALL_ATOM %}
+  <link
+    href="{{ FEED_DOMAIN }}/{% if FEED_ALL_ATOM_URL %}{{ FEED_ALL_ATOM_URL }}{% else %}{{ FEED_ALL_ATOM }}{% endif %}"
+    type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Full Atom Feed" />
+  {% endif %}
+  {% if FEED_ALL_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{% if FEED_ALL_RSS_URL %}{{ FEED_ALL_RSS_URL }}{% else %}{{ FEED_ALL_RSS }}{% endif %}"
+    type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Full RSS Feed" />
+  {% endif %}
+  {% if FEED_ATOM %}
+  <link href="{{ FEED_DOMAIN }}/{%if FEED_ATOM_URL %}{{ FEED_ATOM_URL }}{% else %}{{ FEED_ATOM }}{% endif %}"
+    type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Atom Feed" />
+  {% endif %}
+  {% if FEED_RSS %}
+  <link href="{{ FEED_DOMAIN }}/{% if FEED_RSS_URL %}{{ FEED_RSS_URL }}{% else %}{{ FEED_RSS }}{% endif %}"
+    type="application/rss+xml" rel="alternate" title="{{ SITENAME }} RSS Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_ATOM and category %}
+  <link
+    href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_ATOM_URL %}{{ CATEGORY_FEED_ATOM_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_ATOM.format(slug=category.slug) }}{% endif %}"
+    type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Categories Atom Feed" />
+  {% endif %}
+  {% if CATEGORY_FEED_RSS and category %}
+  <link
+    href="{{ FEED_DOMAIN }}/{% if CATEGORY_FEED_RSS_URL %}{{ CATEGORY_FEED_RSS_URL.format(slug=category.slug) }}{% else %}{{ CATEGORY_FEED_RSS.format(slug=category.slug) }}{% endif %}"
+    type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Categories RSS Feed" />
+  {% endif %}
+  {% if TAG_FEED_ATOM and tag %}
+  <link
+    href="{{ FEED_DOMAIN }}/{% if TAG_FEED_ATOM_URL %}{{ TAG_FEED_ATOM_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_ATOM.format(slug=tag.slug) }}{% endif %}"
+    type="application/atom+xml" rel="alternate" title="{{ SITENAME }} Tags Atom Feed" />
+  {% endif %}
+  {% if TAG_FEED_RSS and tag %}
+  <link
+    href="{{ FEED_DOMAIN }}/{% if TAG_FEED_RSS_URL %}{{ TAG_FEED_RSS_URL.format(slug=tag.slug) }}{% else %}{{ TAG_FEED_RSS.format(slug=tag.slug) }}{% endif %}"
+    type="application/rss+xml" rel="alternate" title="{{ SITENAME }} Tags RSS Feed" />
+  {% endif %}
+
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/tufte.css" />
+  <link rel="stylesheet" type="text/css" href="{{ SITEURL }}/theme/css/style.css" />
+
+  {% endblock head %}
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <a href="{{ SITEURL }}/">{{ SITENAME }}</a>
+    </h1>
+    
+    {% if SITESUBTITLE %}
+    <p class="subtitle">{{ SITESUBTITLE }}</p>
+    {% endif %}
+
+    <nav>
+      <ul>
+        {% for pp in pages %}
+        {% if pp.relative_source_path == 'pages/about.md' %}
+        <li><a href="{{ SITEURL }}">{{ pp.title }}</a></li>
+        <span class="nav-sep">&#x2022;</span>
+        {% endif %}
+        {% endfor %}
+        
+        <!-- <li><a href="{{ SITEURL }}/">Bio</a></li>
+        <span class="nav-sep">&#x2022;</span> -->
+        
+        {% for pp in pages %}
+          {% if not pp.relative_source_path == 'pages/about.md' %}
+            <li><a href="{{ SITEURL }}/{{ pp.url }}">{{ pp.title }}</a></li>
+            {% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
+          {% endif %}
+        {% endfor %}
+
+        {% if DISPLAY_CATEGORIES_ON_MENU %}
+          {% for cat, null in categories %}
+            <li{% if cat == category %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ cat.url }}">{{ cat }}</a></li>
+            {% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
+          {% endfor %}
+        {% endif %}
+      </ul>
+    </nav>
+
+  </header>
+  
+  <main>
+    {% block content %}
+    {% endblock %}
+  </main>
+  
+  <footer>
+    <section>
+      <p id="about" class="text-small">
+        Powered by <a href="https://getpelican.com/">Pelican</a>. Theme created by <a href="https://github.com/jAniceto">José Aniceto</a> and based on <a href="https://edwardtufte.github.io/tufte-css/">Tufte CSS</a>.
+      </p>
+    </section>
+  </footer>
+
+</body>
+
+</html>

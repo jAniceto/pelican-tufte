@@ -1,0 +1,17 @@
+nav > ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+nav > ul > li {
+    display: inline-block;
+}
+
+.nav-sep {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.text-small {
+    font-size: 1.1rem;
+}

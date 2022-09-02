@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - {{ category }}{% endblock %}
+
+
+{% block content %}
+
+<section>
+  <h1>{{ category }}</h1>
+</section>
+
+{% for item in articles %}
+<section>
+  <!-- Title and link -->
+  <h2>
+    {% if item.link %}
+      <a href="{{ item.link }}" target="_blank">{{ item.title }}</a>
+    {% else %}
+      {{ item.title }}
+    {% endif %}
+  </h2>
+
+  <!-- Image -->
+  {% if item.image %}
+  <p>
+    <span class="marginnote">
+      <img src="{{ item.image }}" alt="{{ item.title }}">
+    </span>
+  </p>
+  {% endif %}
+
+  <!-- Lead (subtitle) -->
+  {% if item.lead %}
+  <p><em>{{ item.lead }}</em></p>
+  {% endif %}
+
+  <!-- Talks -->
+  <p>
+    {% if item.location %}{{ item.location }}{% endif %}
+    {% if item.location and item.date %}<span class="nav-sep">&#x2022;</span>{% endif %}
+    {% if category in('Blog', 'Talks') %}
+    <time datetime="{{ item.date.isoformat() }}">{{ item.locale_date }}</time>
+    {% endif %}
+  </p>
+
+  <!-- Publications -->
+  <p>
+    {% if item.journal %}<em>{{ item.journal }}{% endif %}
+      {% if item.issue %}</em><span class="nav-sep">&#x2022;</span>{{ item.issue }}{% endif %}
+    {% if category == 'Publications' %}
+    {% if item.date %}<span class="nav-sep">&#x2022;</span>{{ item.date.strftime('%Y') }}{% endif %}
+    {% endif %}
+  </p>
+
+  <p>{{ item.content }}</p>
+</section>
+{% endfor %}
+
+{% endblock content %}
