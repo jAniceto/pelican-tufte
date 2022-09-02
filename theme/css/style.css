@@ -1,0 +1,31 @@
+nav>ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+nav>ul>li {
+    display: inline-block;
+}
+
+.nav-sep {
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.text-small {
+    font-size: 1.1rem;
+}
+
+.columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+    column-width: 200px;
+}
+
+.article-metadata {
+    margin-top: -1rem;
+    padding-top: 0;
+}
