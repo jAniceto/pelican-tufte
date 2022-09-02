@@ -19,3 +19,13 @@ DELETE_OUTPUT_DIRECTORY = True
 
 #DISQUS_SITENAME = ""
 #GOOGLE_ANALYTICS = ""
+
+MENUITEMS = (
+    ('Bio', f'{SITEURL}'),
+    ('Publications', f'{SITEURL}/category/publications.html'),
+    ('Teaching', f'{SITEURL}/category/teaching.html'),
+    ('Talks', f'{SITEURL}/category/talks.html'),
+    ('Projects', f'{SITEURL}/category/projects.html'),
+    ('Blog', f'{SITEURL}/blog.html'),
+    ('Contact', f'{SITEURL}/pages/contact.html'),
+)
