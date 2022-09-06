@@ -38,8 +38,6 @@ RELATIVE_URLS = True
 
 THEME = '../pelican-tufte-theme'
 
-PROFILE_IMAGE_URL = 'https://placehold.jp/500x500.png'
-
 INDEX_SAVE_AS = 'blog.html'
 
 DISPLAY_PAGES_ON_MENU = False

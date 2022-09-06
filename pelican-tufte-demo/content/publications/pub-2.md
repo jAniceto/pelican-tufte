@@ -1,6 +1,7 @@
 Title: Quisque consequat auctor nisl, quis pretium lectus
 Category: Publications
 Journal: Fusce suscipit ultricies condimentum
+Authors: Vivamus venenatis2, Vivamus venenatis3
 Issue: 123 (3)
 Date: 2020
 Link: www.example.com
