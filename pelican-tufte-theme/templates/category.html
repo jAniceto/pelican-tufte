@@ -47,8 +47,14 @@
 
   <!-- Publications -->
   <p>
-    {% if item.journal %}<em>{{ item.journal }}{% endif %}
-      {% if item.issue %}</em><span class="nav-sep">&#x2022;</span>{{ item.issue }}{% endif %}
+    {% if item.authors %}
+      {% for author in item.authors %}
+        {{ author }}{% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
+      {% endfor %}
+      <br>
+    {% endif %}
+    {% if item.journal %}<em>{{ item.journal }}</em>{% endif %}
+    {% if item.issue %}<span class="nav-sep">&#x2022;</span>{{ item.issue }}{% endif %}
     {% if category == 'Publications' %}
     {% if item.date %}<span class="nav-sep">&#x2022;</span>{{ item.date.strftime('%Y') }}{% endif %}
     {% endif %}

@@ -26,10 +26,6 @@ Pelican settings supported by this theme:
 - `DISPLAY_CATEGORIES_ON_MENU`
 - `INDEX_SAVE_AS`
 
-Additionaly supported settings variables:
-
-- `PROFILE_IMAGE_URL` - image to display in the `index.html` page
-
 
 ### Use a static page as home page
 
