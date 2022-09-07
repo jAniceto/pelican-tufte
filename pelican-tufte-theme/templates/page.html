@@ -14,11 +14,9 @@
 <section>
   <p>
     {% if page.image %}
-    {% if page.save_as == 'index.html' %}
     <span class="marginnote">
       <img src="{{ page.image }}" alt="{{ page.title }}">
     </span>
-    {% endif %}
     {% endif %}
     
     {{ page.content }}
