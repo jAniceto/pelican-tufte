@@ -31,32 +31,40 @@
   </p>
   {% endif %}
 
-  <!-- Lead (subtitle) -->
-  {% if item.lead %}
-  <p><em>{{ item.lead }}</em></p>
-  {% endif %}
-
-  <!-- Talks -->
+  <!-- Authors -->
   <p>
-    {% if item.location %}{{ item.location }}{% endif %}
-    {% if item.location and item.date %}<span class="nav-sep">&#x2022;</span>{% endif %}
-    {% if category in('Blog', 'Talks') %}
-    <time datetime="{{ item.date.isoformat() }}">{{ item.locale_date }}</time>
+    {% if item.show_authors %}
+    {% for author in item.authors %}
+    {{ author }}{% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
+    {% endfor %}
+    <!-- <br> -->
     {% endif %}
   </p>
-
-  <!-- Publications -->
+  
+  <!-- Lead (subtitle) -->
+  {% if item.lead %}
   <p>
-    {% if item.authors %}
-      {% for author in item.authors %}
-        {{ author }}{% if not loop.last %}<span class="nav-sep">&#x2022;</span>{% endif %}
-      {% endfor %}
-      <br>
-    {% endif %}
+    <em>{{ item.lead }}</em>
+  </p>
+  {% endif %}
+
+  <p>
+    <!-- Journal -->
     {% if item.journal %}<em>{{ item.journal }}</em>{% endif %}
+
+    <!-- Issue / Volume / Book title -->
     {% if item.issue %}<span class="nav-sep">&#x2022;</span>{{ item.issue }}{% endif %}
-    {% if category == 'Publications' %}
-    {% if item.date %}<span class="nav-sep">&#x2022;</span>{{ item.date.strftime('%Y') }}{% endif %}
+
+    <!-- Location -->
+    {% if item.location %}{{ item.location }}{% endif %}
+    
+    <!-- Year -->
+    {% if item.year %}<span class="nav-sep">&#x2022;</span>{{ item.year }}{% endif %}
+  </p>
+
+  <p>
+    {% if category == 'Blog' %}
+    <time datetime="{{ item.date.isoformat() }}">{{ item.locale_date }}</time>
     {% endif %}
   </p>
 
